@@ -1,0 +1,50 @@
+per:
+  info:
+    name: Pradeep
+    age: 22
+    favColours: [red,green,blue]
+    studies: [10+12-MPC,Graduation,MSC]
+    phoNo: [12121212,12121222,12121266,12121212]
+   
+    personal:
+      friendName: Rushikesh
+      girlFiendName: Pooja
+    comp:
+      cName: Oracle
+      desg: Developer
+      sal: 9000
+
+#
+##simple properties
+#
+#per.info.name=pradeep
+#per.info.age=22
+#
+##array type
+#per.info.favColours[0]=red
+#per.info.favColours[1]=green
+#per.info.favColours[2]=blue
+#per.info.favColours[3]=yellow
+#
+##list type
+#
+#per.info.studies[0]=10+12-MPC
+#per.info.studies[1]=Graduation
+#per.info.studies[2]=MSC
+#
+##set
+#per.info.phoNo[0]=111111213
+#per.info.phoNo[1]=234422233
+#per.info.phoNo[2]=232345345
+#per.info.phoNo[3]=111111213
+#
+##map type 
+#per.info.personal.friendName=Rushikesh
+#per.info.personal.girlFiendName=Pooja
+#
+#
+##has-a property
+#per.info.e.cName=oracle
+#per.info.e.desg=Developer
+#per.info.e.sal=400000
+#
