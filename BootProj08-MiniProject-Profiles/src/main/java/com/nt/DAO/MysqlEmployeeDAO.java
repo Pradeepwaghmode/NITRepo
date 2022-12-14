@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import com.nt.modal.Employee;
 
 @Repository("mysqlEmp")
-@Profile({"dev","test"})
+@Profile({"dev","test","default"})
 public class MysqlEmployeeDAO implements IEmployeeDAO{
 	private static final String GET_EMPLOYEES_BASED_ON_DESG = "SELECT  *  FROM REALTIMEDI_SPRING_EMPLOYEE WHERE DESG IN (?,?,?)";
 	@Autowired
