@@ -2,6 +2,7 @@ package com.nt.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.events.Event.ID;
 
 import com.nt.Repository.IMovieRepo;
 import com.nt.moduls.Movie;
@@ -23,6 +24,18 @@ public class MovieMgmnt implements IMovieMgmtService{
 		System.out.println("After move fill "+move);
 		
 		return "Movie is registerted with unique id :: "+move1.getMid();
+	}
+
+	@Override
+	public Long getMovieCount() {
+		System.out.println("==========================");
+		return repo.count();
+	}
+
+	@Override
+	public boolean serachMovieById(ID id) {
+		
+		return repo.existsById(id);
 	}
 
 }
