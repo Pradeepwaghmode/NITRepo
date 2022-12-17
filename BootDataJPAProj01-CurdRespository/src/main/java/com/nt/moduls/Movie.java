@@ -9,9 +9,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Table(name="NEW_Movie")
 public class Movie implements Serializable {
 
@@ -21,12 +26,15 @@ public class Movie implements Serializable {
 	private Integer mid;
 	
 	@Column(name="M_NAME" , length=20)
+	@NonNull
 	private String mName;
 	
 	@Column(name="YEAR" , length=20)
+	@NonNull
 	private String year;
 	
 	@Column(name="RATING")
+	@NonNull
 	private Float rating;
 	
 }
