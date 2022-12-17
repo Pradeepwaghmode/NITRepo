@@ -1,8 +1,10 @@
 package com.nt.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.yaml.snakeyaml.events.Event.ID;
 
 import com.nt.Repository.IMovieRepo;
 import com.nt.moduls.Movie;
@@ -26,16 +28,51 @@ public class MovieMgmnt implements IMovieMgmtService{
 		return "Movie is registerted with unique id :: "+move1.getMid();
 	}
 
+//	@Override
+//	public Long getMovieCount() {
+//		System.out.println("==========================");
+//		return repo.count();
+//	}
+
+	
+
+	@Override
+	public Iterable<Movie> featchAllMovies() {
+		
+		
+		return repo.findAll();
+	}
+
+	@Override
+	public Iterable<Movie> featchAllMoviesById(List<Integer> listId) {
+		// TODO Auto-generated method stub
+		
+		
+		return repo.findAllById(listId); 
+	}
+
+	@Override
+	public Movie featchMoviById(Integer mid) {
+		// TODO Auto-generated method stub
+		Optional<Movie> opt=repo.findById(mid);
+		if(opt.isPresent())
+			return opt.get();
+		else
+			throw new IllegalArgumentException("Rocord not found !!");
+		
+	}
+
 	@Override
 	public Long getMovieCount() {
-		System.out.println("==========================");
+		// TODO Auto-generated method stub
 		return repo.count();
 	}
 
 	@Override
-	public boolean serachMovieById(ID id) {
+	public boolean serachMovieById(Integer id) {
+		// TODO Auto-generated method stub
 		
-		return repo.existsById(id);
+		return false;
 	}
 
 }

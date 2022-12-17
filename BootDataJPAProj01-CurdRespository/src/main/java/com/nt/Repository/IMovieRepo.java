@@ -5,7 +5,7 @@ import org.yaml.snakeyaml.events.Event.ID;
 
 import com.nt.moduls.Movie;
 
-public interface IMovieRepo extends CrudRepository<Movie, ID> {
+public interface IMovieRepo extends CrudRepository<Movie, Integer> {
 	
 
 }
