@@ -124,11 +124,18 @@ public class MovieRunnerTest implements CommandLineRunner {
 //			// TODO: handle exception
 //		}
 		
+//		
+//		try {
+//			Movie movie=new Movie();
+//			movie.setMid(952);
+//			System.out.println(service.deletedAfterVarifingId(movie));
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+		
 		
 		try {
-			Movie movie=new Movie();
-			movie.setMid(952);
-			System.out.println(service.deletedAfterVarifingId(movie));
+			System.out.println(service.deleteById(List.of(202,252)));
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

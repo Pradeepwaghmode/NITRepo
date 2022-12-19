@@ -21,6 +21,8 @@ public interface IMovieMgmtService {
 	public String deletebyId(Integer id);
 	public String deletebyIdDirect(Integer id);
 	public String deletedAfterVarifingId(Movie movie);
+	public String deleteById(List<Integer> list);
+
 	
 	
 }
