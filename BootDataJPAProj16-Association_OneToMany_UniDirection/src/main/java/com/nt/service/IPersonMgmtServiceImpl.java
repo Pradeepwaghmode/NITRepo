@@ -7,10 +7,5 @@ import com.nt.modul.PhoneNumbers;
 
 public interface IPersonMgmtServiceImpl {
 
-	public String RegistorPerson(Person person);
-	
-	public void LoadDataUsingParent();
-	public String deleteParentAndChilds(int pid);
-	public String deleteAllPhoneNumbersOfPerson(int pid);
-	public String saveOnlyChild(List<PhoneNumbers> phno);
+	public List<Object[]> featchDataByJoin();
 }

@@ -20,65 +20,11 @@ public class PersonMgmtServiceImpl implements IPersonMgmtServiceImpl {
 	@Autowired
 	private IPhoneNumberRepository phoneRepo;
 
-	@Override
-	public String RegistorPerson(Person person) {
-		// TODO Auto-generated method stub
-		return " Person Saved wiht id " + perRepo.save(person).getPid() + " , Thnak you for using our service. ";
-	}
-
-	@Override
-	public void LoadDataUsingParent() {
-
-		List<Person> per = perRepo.findAll();
-
-		per.forEach(par -> {
-			System.out.println("Parent : " + per);
-			Set<PhoneNumbers> phone = par.getPhoneNumbers();
-			phone.forEach(ch -> {
-				System.out.println("Child : " + ch);
-			});
-		});
-
-	}
-
-	@Override
-	public String deleteParentAndChilds(int pid) {
-
-		Optional<Person> op = perRepo.findById(pid);
-
-		if (op.isPresent()) {
-			perRepo.delete(op.get());
-			return pid + " is deleted succuesfully with it child's";
-		} else {
-			return pid + " is not found !!";
-		}
-	}
 	
 	@Override
-	public String deleteAllPhoneNumbersOfPerson(int pid) {
-
-		//load parent on bject's
-		/*Optional<PhoneNumbers> op=phoneRepo.findById(pid);
-		if (op.isPresent()) {
-			phoneRepo.delete(op.get());
-			return pid + " is deleted succuesfully";
-		} else {
-			return pid + " is not found !!";
-		}*/
-		Optional<Person> op=perRepo.findById(pid);
-		if(op.isPresent()){
-			Set<PhoneNumbers> phone=op.get().getPhoneNumbers();
-			phoneRepo.deleteAll();
-			return pid + " is deleted succuesfully";
-		}
+	public List<Object[]> featchDataByJoin() {
 		
-		return pid + " is not found !!";
-	}
-	
-	@Override
-	public String saveOnlyChild(List<PhoneNumbers> phno) {
-		// TODO Auto-generated method stub
-		return "child saved succesfully !! , "+phoneRepo.saveAll(phno);
+		return perRepo.findUsingJoins();
 	}
 
 }
