@@ -30,6 +30,7 @@ public class Mysql_Procedure_Runner_Test implements CommandLineRunner {
 			System.out.println();
 		});
 		
+		System.out.println("Thank you");
 		System.out.println("======================");
 		
 		
