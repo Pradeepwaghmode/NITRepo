@@ -1,0 +1,1 @@
+<h1 style="color: navy;text-align: center;"> Welcome To Spring MVC</h1>
