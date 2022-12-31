@@ -2,7 +2,7 @@
 <html>
 <head></head>
 <body bgcolor="skyblue">
-<h1 style="color: lime;text-align: center;">Message Page copy</h1>
+<h1 style="color: lime;text-align: center;">Message Page</h1>
 <br><br>
 <h2 style="color: purple; text-align: center;">Current Time : ${time} </h2>
 <br><br>

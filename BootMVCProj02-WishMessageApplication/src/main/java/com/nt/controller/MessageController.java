@@ -1,7 +1,10 @@
 package com.nt.controller;
 
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.HashMap;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +18,21 @@ public class MessageController {
 	@Autowired
 	IWishService service;
 
-	@RequestMapping("/home")
+	/*@RequestMapping("/home")
+	public String displayHomePage() {
+		return "welcome";
+	}*/
+	
+	/*@RequestMapping("/")
+	public String displayHomePage() {
+		return "welcome";
+	}*/
+
+	@RequestMapping
 	public String displayHomePage() {
 		return "welcome";
 	}
-
+	
 	/*@RequestMapping("/wms")
 	public ModelAndView gernrateMessage() {
 	
@@ -58,13 +71,39 @@ public class MessageController {
 	
 	@RequestMapping("/wms")
 	public void gernrateMessage(HashMap<String, Object> map) {
-
+	
 		System.out.println("=========================" + map.getClass());
 		String msg = service.genrateMessage();
-
+	
 		map.put("msg", msg);
 		map.put("time", new Date());
 		
 	}
+	
+	@RequestMapping({"wms3","/wms1","wms2"})
+	public String gernrateMessage1(HashMap<String, Object> map) {
+	
+		String msg = service.genrateMessage();
+		
+		map.put("msg", msg);
+		map.put("time", new Date());
+		
+	
+		return "WishMessage";
+	}
+	
+	/*@RequestMapping("/wms")
+	public void gernrateMessage(HttpServletResponse res) throws Exception  {
+	
+		System.out.println("=========================" + res.getClass());
+		String msg = service.genrateMessage();
+	
+		PrintWriter pw=res.getWriter();
+		pw.print("<b>MEsssge is :: "+msg+"</b><br>");
+		pw.print("<b> Current Time is ::"+new Date());
+	 
+		
+		
+	}*/
 
 }
