@@ -107,7 +107,7 @@ public class MessageController {
 		
 		System.out.println("MessageController.showMethod1()");
 		
-		return "ShowReport2";
+		return "redirect:report";
 	}
 	
 	/*@RequestMapping("/wms")
