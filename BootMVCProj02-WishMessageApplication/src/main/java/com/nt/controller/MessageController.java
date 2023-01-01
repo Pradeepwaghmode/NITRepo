@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nt.service.IWishService;
@@ -90,6 +92,22 @@ public class MessageController {
 		
 	
 		return "WishMessage";
+	}
+	
+	@GetMapping("/report")
+	public String showMethod() {
+	
+		System.out.println("MessageController.showMethod()");
+		
+		return "ShowReport";
+	}
+	
+	@PostMapping("/report")
+	public String showMethod1() {
+		
+		System.out.println("MessageController.showMethod1()");
+		
+		return "ShowReport2";
 	}
 	
 	/*@RequestMapping("/wms")
