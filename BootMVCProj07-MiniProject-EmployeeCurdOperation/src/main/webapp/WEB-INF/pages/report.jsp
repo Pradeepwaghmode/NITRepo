@@ -32,6 +32,9 @@
 </c:otherwise>
 </c:choose>
 
+<c:if test="${!empty msg}">
+	<h1 style="color: green;text-align: center;">${msg}</h1>
+</c:if>
 <h1 style="color: lime;text-align: center;"><a alt="Img not fond"href="./"><img src="images/home.jpg" width="50" height="50"></a>
 &nbsp;&nbsp;&nbsp;
 <a alt="Img not fond"href="register"><img src="images/add.png" width="50" height="50"></a></h1>

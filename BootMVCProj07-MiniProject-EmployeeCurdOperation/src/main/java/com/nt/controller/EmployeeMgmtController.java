@@ -25,8 +25,8 @@ public class EmployeeMgmtController {
 	}
 
 	@GetMapping("/register")
-	public String registration() {
-
+	public String registration(@ModelAttribute("emp") Employee emp) {
+		emp.setJob("clerk");
 		return "register";
 	}
 
@@ -34,7 +34,9 @@ public class EmployeeMgmtController {
 	public String restrationConformation(Map<String, Object> map, @ModelAttribute("emp") Employee emp) {
 		String msg = service.empRegistor(emp);
 		map.put("msg", msg);
-		return "conformation";
+		List<Employee> emp1 = service.getAllEmployee();
+		map.put("list", emp1);
+		return "report";
 	}
 
 	@GetMapping("/report")
