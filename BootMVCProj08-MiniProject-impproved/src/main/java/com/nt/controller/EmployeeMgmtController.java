@@ -38,6 +38,7 @@ public class EmployeeMgmtController {
 
 	@PostMapping("/registrationConformation")
 	public String restrationConformation(RedirectAttributes ra, @ModelAttribute("emp") Employee emp) {
+		System.out.println("EmployeeMgmtController.restrationConformation()");
 		String msg = service.empRegistor(emp);
 		ra.addFlashAttribute("msg", msg);
 		return "redirect:report";
@@ -70,23 +71,19 @@ public class EmployeeMgmtController {
 	}
 
 	@PostMapping("/edit")
-	public String editEmployee(Map<String, Object> map, @ModelAttribute("emp") Employee emp) {
+	public String editEmployee(RedirectAttributes ra, @ModelAttribute("emp") Employee emp) {
 
 		String msg=service.updateEmployee(emp);
 		System.out.println("===============================");
 		System.out.println(emp);
-		List<Employee> emp1 = service.getAllEmployee();
-		map.put("list", emp1);
-		map.put("msg",msg);
-		return "report";
+		ra.addFlashAttribute("msg", msg);
+		return "redirect:report";
 	}
 	
 	@GetMapping("/delete")
-	public String deleteEmployee( Map<String, Object> map,@RequestParam(name = "empno")int eno) {
+	public String deleteEmployee( RedirectAttributes ra,@RequestParam(name = "empno")int eno) {
 		String msg=service.deleteEmployee(eno);
-		List<Employee> emp1 = service.getAllEmployee();
-		map.put("list", emp1);
-		map.put("msg",msg);
-		return "report";
+		ra.addFlashAttribute("msg", msg);
+		return "redirect:report";
 	}
 }
