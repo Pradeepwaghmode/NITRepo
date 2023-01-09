@@ -2,7 +2,7 @@
 
 function validation(frm){
 	frm.vflag.value="yes";
-	alert(frm.vflag.value="yes");
+	//alert(frm.vflag.value="yes");
 	//get the error messages
 //	alert(1);
 	document.getElementById("empnameErr").innerHTML="";
@@ -42,7 +42,7 @@ function validation(frm){
 		document.getElementById("salaryErr").innerHTML="Salary is must be in range  !!"
 		flag=false;
 	}
-	alert(2);
+	//alert(2);
 
 	frm.vflag.value="yes";
 
