@@ -52,7 +52,7 @@ public class ShoppingServiceImpl implements IShopingImpl {
 		helper.setSentDate(new Date());
 		helper.setSubject("open it to know it ");
 		helper.setText("Hi All ,"
-				+ "  \\r\\n 	"+msg+regards);
+				+ "\r\n"+msg+regards);
 		helper.addAttachment("nit.jpg",new ClassPathResource("oracle.png"));
 		sender.send(message);
 		return "Mail Send";

@@ -15,7 +15,7 @@ public class BootMailProj01SendMailApplication {
 		IShopingImpl shopping=ctx.getBean("shopping",ShoppingServiceImpl.class);
 		String msg=null;
 		try {
-		 msg=shopping.FinalBill(new Float[] {100f,323f,444f,2323f}, new String[] {"Shart","pant","trauser","T-Shart"},new String[] {"pradeepwaghmode8@gmail.com","pradeepwaghmode952728@gmail.com"} );
+		 msg=shopping.FinalBill(new Float[] {100f,323f,444f,2323f}, new String[] {"Shart","pant","trauser","T-Shart"},new String[] {"pradeepwaghmode8@gmail.com","pradeepwaghmode952728@gmail.com","sanvisapisal07@gmail.com"} );
 		}
 		catch(Exception e) {
 			e.printStackTrace();
