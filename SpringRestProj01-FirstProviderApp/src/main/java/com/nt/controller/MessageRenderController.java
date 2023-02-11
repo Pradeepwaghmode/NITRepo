@@ -1,8 +1,8 @@
 package com.nt.controller;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,9 +38,9 @@ public class MessageRenderController {
 		return entity;
 	}
 	@PostMapping("/wish")
-	public ResponseEntity<List<String>> showMessage1(){
+	public ResponseEntity<Map<String,String>> showMessage1(){
 		
-		ResponseEntity<List<String>> entity=new ResponseEntity<List<String>>(List.of("Pradeep","Raje","Nataraj","Ramu"), HttpStatus.OK);
+		ResponseEntity<Map<String,String>> entity=new ResponseEntity<Map<String,String>>(Map.of("Pradeep","Raje","Nataraj","Ramu"), HttpStatus.OK);
 		
 		return entity;
 	}
