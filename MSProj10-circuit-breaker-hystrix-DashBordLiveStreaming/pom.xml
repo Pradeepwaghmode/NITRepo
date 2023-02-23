@@ -5,18 +5,17 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.8</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.2.10.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>nit</groupId>
-	<artifactId>MSProj05-EmpService</artifactId>
+	<artifactId>MSProj08-circuit-hystrix</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>MSProj05-EmpService</name>
+	<name>MSProj08-circuit-hystrix</name>
 	<description>eureka server</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>2021.0.5</spring-cloud.version>
+		<spring.cloud.version>Hoxton.SR4</spring.cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -24,41 +23,28 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+			<version>2.2.10.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix-dashboard -->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+    <version>2.2.10.RELEASE</version>
+</dependency>
 
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -67,5 +53,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
