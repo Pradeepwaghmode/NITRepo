@@ -30,4 +30,10 @@ public class UserRegistrationController {
 	map.put("msg", msg);
 		return "user_registration_succuss";
 	}
+	
+	@GetMapping("/showLogin")
+	public String showloginpage() {
+		
+		return "custom_login";
+	}
 }

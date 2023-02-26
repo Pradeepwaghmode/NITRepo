@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.nt.service.IUserServiceImpl;
 
@@ -28,16 +29,21 @@ public class BankSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
 		http.authorizeRequests().antMatchers("/bank/").permitAll()
-													 .antMatchers("/user/register").permitAll()
+													 .antMatchers("/user/register","/user/showLogin").permitAll()
                                                       .antMatchers("/bank/offers").authenticated()
                                                       .antMatchers("/bank/balance").hasAnyRole("manager","customer")
                                                       .antMatchers("/bank/approval").hasRole("manager")
                                                       .anyRequest().authenticated()
               //.and().httpBasic()
-               .and().formLogin()
+               .and().formLogin().defaultSuccessUrl("/bank/",true)
+               .loginPage("/user/showLogin")
+               .loginProcessingUrl("/login")
+               .failureUrl("/user/showLogin?error")
+               
                .and().rememberMe()
-               .and().logout()
-              .and().exceptionHandling().accessDeniedPage("/denied")
+               .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/bank/logout"))
+               .logoutSuccessUrl("/user/showLogin?logout")
+              .and().exceptionHandling().accessDeniedPage("/bank/denied")
               .and().sessionManagement().maximumSessions(2).maxSessionsPreventsLogin(true);
 	}
 }
