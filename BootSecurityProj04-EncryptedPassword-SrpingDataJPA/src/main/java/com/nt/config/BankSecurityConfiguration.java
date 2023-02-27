@@ -31,8 +31,8 @@ public class BankSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/bank/").permitAll()
 													 .antMatchers("/user/register","/user/showLogin").permitAll()
                                                       .antMatchers("/bank/offers").authenticated()
-                                                      .antMatchers("/bank/balance").hasAnyRole("manager","customer")
-                                                      .antMatchers("/bank/approval").hasRole("manager")
+                                                      .antMatchers("/bank/balance").hasAnyAuthority("manager","customer")
+                                                      .antMatchers("/bank/approval").hasAuthority("manager")
                                                       .anyRequest().authenticated()
               //.and().httpBasic()
                .and().formLogin().defaultSuccessUrl("/bank/",true)
@@ -45,5 +45,6 @@ public class BankSecurityConfiguration extends WebSecurityConfigurerAdapter {
                .logoutSuccessUrl("/user/showLogin?logout")
               .and().exceptionHandling().accessDeniedPage("/bank/denied")
               .and().sessionManagement().maximumSessions(2).maxSessionsPreventsLogin(true);
+		
 	}
 }
